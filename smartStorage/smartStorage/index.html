@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Storage Wrapper Test</title>
+  <script src="stroge.js"></script>
+</head>
+<body>
+  <h1>localStorage Wrapper Testi</h1>
+  
+  <script>
+    // Test: Data Create
+    StorageWrapper.set('kullanici', { isim: 'Ali', yas: 30 });
+
+    // Test: read data
+    console.log(StorageWrapper.get('kullanici'));
+
+    // Test: add timed data (5 seconds)
+    StorageWrapper.setWithExpiry('gecici', 'merhaba', 5000);
+
+    // 6 check again in seconds
+    setTimeout(() => {
+      console.log('Süreli veri:', StorageWrapper.get('gecici'));
+    }, 6000);
+  </script>
+</body>
+</html>
